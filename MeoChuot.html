@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Chuột:
+ten
+sucKhoe(1 chỉ số)
+keu(): document.write('chip chip')-->
+
+<!--
+Mèo:
+ten
+canNang
+can(abc){
+    sucKhoe của chuột abc bị giảm 10; cân nặng mèo tăng 5;
+    nếu sucKhoe của abc < 0 thì abc keu!
+}
+-->
+
+<script>
+    class Mouse{
+        ten;
+        sucKhoe
+        constructor(x, y) {
+            this.ten = x;
+            this.sucKhoe = y;
+        }
+        keu(){
+            document.write(this.ten + 'Chip Chip')
+        }
+
+        inRa(){
+            document.write(this.ten + ': ' +this.sucKhoe)
+        }
+    }
+    class Cat {
+        ten;
+        canNang;
+
+        constructor(a,b) {
+            this.ten = a;
+            this.canNang = b;
+        }
+
+        can(ch){
+            ch.sucKhoe = ch.sucKhoe - 10;
+            this.canNang += 5;
+            if (ch.sucKhoe < 0){
+                ch.keu();
+            }
+        }
+
+        inRa(){
+            document.write(this.ten + ': ' + this.canNang)
+        }
+
+    }
+
+    let jerrry1 = new Mouse('Jerry', 1000000);
+    let uc = new Mouse('Uccc', 50);
+    let meo = new Cat('Tom', 70);
+    meo.can(UC);
+    jerrry1.inRa();
+    meo.can(UC);
+    UC.inRa();
+</script>
+</body>
+</html>

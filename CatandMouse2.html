@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mèo Vờn Chuột</title>
+</head>
+<body>
+<script>
+    class Animal{
+        constructor(name, weight, speed, say) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.say = say;
+        }
+
+        getName(){
+            return this.name
+        }
+
+        setName(name){
+            this.name = name;
+        }
+
+        getWeight(){
+            return this.weight;
+        }
+
+        setWeight(weight){
+            this.weight = weight;
+        }
+
+        getSpeed(){
+            return this.speed;
+        }
+
+        setSpeed(speed){
+            this.speed = speed;
+        }
+
+        getSay(){
+            return this.say;
+        }
+
+        setSay(say){
+            this.say = say;
+        }
+    }
+
+    class Mouse extends Animal{
+
+        constructor(name, weight, speed, say, status) {
+            super(name, weight, speed, say);
+        }
+        getStatus(){
+            if (this.status){
+                console.log('Đăng xuất Earth')
+            }else {
+                console.log('Tao Vẫn Sống')
+            }
+            return this.status
+        }
+        setStatus(status){
+            this.status = status;
+        }
+    }
+
+    class Cat extends Animal{
+
+        constructor(name, weight, speed, say) {
+            super(name, weight, speed, say);
+        }
+        catchMouse(mouse){
+            if (super.getSpeed()>mouse.getSpeed()){
+                console.log('Tao đã bắt đc mày! hihi')
+                mouse.setStatus(true);
+            }else {
+                console.log('Nó chạy nhanh quá! Ét ô ét')
+            }
+        }
+
+        eatMouse(mouse){
+            if (mouse.getStatus()){
+                super.setWeight(super.getWeight()+mouse.getWeight());
+                console.log('Đây là tao sau khi ăn', super.getWeight());
+            }
+            else {
+                console.log('Có bắt đc nó đéo đâu - Mà đòi ăn ^^')
+            }
+        }
+    }
+    let mouse1 = new Mouse('Jerry',20,50,'Chít Chít', false);
+    let mouse2 = new Mouse('Bố Jerry', 26,40,'Chip chip', false);
+    let cat = new Cat('Tom',30,45,'Méo Meo')
+</script>
+</body>
+</html>
